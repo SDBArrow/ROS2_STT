@@ -20,8 +20,9 @@ class STT_pub(Node):
             r.adjust_for_ambient_noise(source, duration=2)
             print("Say something!")
             try: 
-                audio=r.listen(source, timeout=3) 
+                audio=r.listen(source) 
                 msg.data = r.recognize_google(audio, language = "zh-TW")
+                print (msg.data)
             except sr.UnknownValueError:
                 print("Google Speech Recongnition could not understand audio")
             except sr.RequestError as e:
