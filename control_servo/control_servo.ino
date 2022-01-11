@@ -11,11 +11,13 @@ void loop(){
   servoleft.writeMicroseconds(1500);
   servoright.writeMicroseconds(1500);
   delay(time);
-  char c;
+  char STT;
   if(Serial.available()>0)
   {
-    c = Serial.read();
-    switch(c){
+    STT = Serial.read();
+    Serial.println("order:");
+    Serial.println(STT);
+    switch(STT){
       case 'R':
         servoleft.writeMicroseconds(1600);
         servoright.writeMicroseconds(1600);
